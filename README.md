@@ -13,7 +13,7 @@ To run this project, you need Python installed on your system along with the pan
 
 **Steps**:
 **Clone the Repository:**<br>
-https://github.com/lily01awasthi/MeetingRoomScheduling.git <br>
+https://github.com/lily01awasthi/MeetingRoomSchedulingProject.git <br>
 cd MeetingRoomSchedulingProject<br>
 Install Required Libraries:
 pip install pandas numpy
