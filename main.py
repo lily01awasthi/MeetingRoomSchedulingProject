@@ -7,6 +7,7 @@ from datetime import date, timedelta
 # returns start and end date and times for the randomly generated meeting hours
 def generate_random_meeting_times(start_date, end_date, start_hour, end_hour, max_duration=3):
     # generate a random meeting day
+    room = np.random.randint(0,10)
     random_day = np.random.randint(0, (end_date - start_date).days)
     meeting_date = start_date + timedelta(days=random_day)
 
@@ -21,7 +22,7 @@ def generate_random_meeting_times(start_date, end_date, start_hour, end_hour, ma
     # to ensure the meeting is within the working hours
     if end_datetime.time() > datetime(end_datetime.year, end_datetime.month, end_datetime.day, end_hour, 0).time():
         end_datetime = datetime(end_datetime.year, end_datetime.month, end_datetime.day, end_hour, 0)
-    return start_datetime, end_datetime
+    return room,start_datetime, end_datetime
 
 
 # Detects overlapping meetings throughout the time frame of Start and End Times
@@ -35,9 +36,9 @@ def find_overlapping_meetings(meetings):
         current_meeting = meetings.iloc[i]
         next_meeting = meetings.iloc[i + 1]
 
-        if current_meeting["End time"] > next_meeting["Start Time"]:
+        if current_meeting["End time"] > next_meeting["Start Time"] and current_meeting["Room"]==next_meeting["Room"]:
             overlapping_meetings.append((i, i + 1))
-            print(f"Overlapping occurred for :Meeting {i} at {current_meeting['Start Time']}:"
+            print(f"Overlapping occurred for room {current_meeting['Room']} :Meeting {i} at {current_meeting['Start Time']}:"
                   f"{current_meeting['End time']} and {i + 1} at {next_meeting['Start Time']}:{next_meeting['End time']}")
 
 
@@ -50,5 +51,6 @@ if __name__ == '__main__':
     End_hour = 18  # work ending time at 6PM
 
     data = [generate_random_meeting_times(Start_date, End_date, Start_hour, End_hour) for _ in range(no_of_meetings)]
-    df_meetings = pd.DataFrame(data, columns=["Start Time", "End time"])
+    df_meetings = pd.DataFrame(data, columns=["Room","Start Time", "End time"])
+    print(df_meetings)
     find_overlapping_meetings(df_meetings)

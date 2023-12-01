@@ -1,0 +1,26 @@
+<!-- templates/booking.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Room Scheduler - Book Meeting</title>
+</head>
+<body>
+    <h1>Book a Meeting Room</h1>
+    <form action="/submit_booking" method="post">
+        <label for="room">Room:</label>
+        <input type="text" id="room" name="room"><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br><br>
+
+        <label for="starttime">Start Time:</label>
+        <input type="time" id="starttime" name="starttime"><br><br>
+
+        <label for="endtime">End Time:</label>
+        <input type="time" id="endtime" name="endtime"><br><br>
+
+        <input type="submit" value="Book">
+    </form>
+</body>
+</html>
