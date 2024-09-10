@@ -25,6 +25,6 @@ generate_random_meeting_times (start_date, end_date, start_hour, end_hour, max_d
 This script generates a DataFrame of random meeting times.<br>
 Modify parameters such as the number of meetings, start/end dates, and working hours as needed.<br>
 
-find_overlapping_meetings(meetings):<br>
+find_overlapping_meetings(meetings):<b
 This script takes the generated meeting schedule and identifies overlapping meetings.<br>
-Overlapping meeting details (start and end times) are printed for review.<br>
+Overlapping meeting details (start and end times) are printed for review.
